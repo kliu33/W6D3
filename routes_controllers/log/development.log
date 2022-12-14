@@ -954,3 +954,267 @@ Started POST "/users/17" for ::1 at 2022-12-14 15:57:47 -0500
 ActionController::RoutingError (No route matches [POST] "/users/17"):
   
   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started DELETE "/users/:id?user[id]=17" for ::1 at 2022-12-14 16:09:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: destroy, request: #<ActionDispatch::Request:0x00007fa27bd7fee0>, params: {"user"=>{"id"=>"17"}, "controller"=>"users", "action"=>"destroy", "id"=>":id"} }[0m
+Completed 404 Not Found in 130ms (ActiveRecord: 6.6ms | Allocations: 2302)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User without an ID:
+  app/controllers/users_controller.rb:19:in `destroy'
+
+Started DELETE "/users/:id?user[id]=17" for ::1 at 2022-12-14 16:13:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `destroy'
+Completed 404 Not Found in 164ms (ActiveRecord: 8.9ms | Allocations: 5568)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=:id:
+  app/controllers/users_controller.rb:18:in `destroy'
+
+Started DELETE "/users/?user[id]=17" for ::1 at 2022-12-14 16:14:50 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/user/?user[id]=17" for ::1 at 2022-12-14 16:17:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [DELETE] "/user"):
+  
+Started GET "/" for ::1 at 2022-12-14 16:19:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/kliu33/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kliu33/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 28.6ms | Allocations: 527)
+Completed 200 OK in 207ms (Views: 109.3ms | ActiveRecord: 0.0ms | Allocations: 2837)
+
+
+Started GET "/users" for ::1 at 2022-12-14 16:19:25 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 165ms (Views: 53.1ms | ActiveRecord: 17.4ms | Allocations: 6075)
+
+
+Started DELETE "/users?user[id]=17" for ::1 at 2022-12-14 16:20:00 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/user?user[id]=17" for ::1 at 2022-12-14 16:20:27 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/user"):
+  
+Started GET "/users" for ::1 at 2022-12-14 16:22:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 151ms (Views: 50.7ms | ActiveRecord: 14.6ms | Allocations: 6176)
+
+
+Started DELETE "/users?user[id]=17" for ::1 at 2022-12-14 16:22:23 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/users" for ::1 at 2022-12-14 16:23:09 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/users" for ::1 at 2022-12-14 16:23:16 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/users" for ::1 at 2022-12-14 16:23:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started GET "/users" for ::1 at 2022-12-14 16:27:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"id"=>"17"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 155ms (Views: 47.3ms | ActiveRecord: 9.1ms | Allocations: 6168)
+
+
+Started DELETE "/users" for ::1 at 2022-12-14 16:27:38 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started GET "/" for ::1 at 2022-12-14 16:28:17 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kliu33/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kliu33/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 285)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 1058)
+
+
+Started GET "/users" for ::1 at 2022-12-14 16:28:21 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.6ms | Allocations: 929)
+
+
+Started GET "/users/17" for ::1 at 2022-12-14 16:28:36 -0500
+
+AbstractController::ActionNotFound - The action 'show' could not be found for UsersController:
+
+Started POST "/__better_errors/5c93938f6c445134/variables" for ::1 at 2022-12-14 16:28:36 -0500
+Started POST "/users" for ::1 at 2022-12-14 16:29:50 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Kevin", "email"=>"asd@adssa.com"}}
+Completed 500 Internal Server Error in 97283ms (ActiveRecord: 0.0ms | Allocations: 114367)
+
+
+
+SystemExit - exit:
+  (byebug):1:in `create'
+  app/controllers/users_controller.rb:10:in `create'
+
+Started DELETE "/users" for ::1 at 2022-12-14 16:32:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/users" for ::1 at 2022-12-14 16:37:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [DELETE] "/users"):
+  
+Started DELETE "/users/:id" for ::1 at 2022-12-14 16:37:13 -0500
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+Completed   in 101263ms (ActiveRecord: 0.0ms | Allocations: 83813)
+
+
+Started DELETE "/users/:id" for ::1 at 2022-12-14 16:39:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+Completed 404 Not Found in 192ms (ActiveRecord: 9.4ms | Allocations: 5667)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=:id:
+  app/controllers/users_controller.rb:19:in `destroy'
+
+Started GET "/users" for ::1 at 2022-12-14 16:40:41 -0500
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"id"=>"17"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.5ms | Allocations: 4598)
+
+
+Started DELETE "/users/:id" for ::1 at 2022-12-14 16:41:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+Completed 404 Not Found in 181ms (ActiveRecord: 12.6ms | Allocations: 5662)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=:id:
+  app/controllers/users_controller.rb:19:in `destroy'
+
+Started DELETE "/users/:id" for ::1 at 2022-12-14 16:42:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+Completed 404 Not Found in 178ms (ActiveRecord: 8.4ms | Allocations: 5666)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=:id:
+  app/controllers/users_controller.rb:19:in `destroy'
+
+Started DELETE "/users/:id" for ::1 at 2022-12-14 16:43:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"id"=>"17"}, "id"=>":id"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `destroy'
+  [1m[36mUser Destroy (8.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/users_controller.rb:20:in `destroy'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `destroy'
+Completed 200 OK in 240ms (Views: 1.0ms | ActiveRecord: 32.1ms | Allocations: 10695)
+
+
+Started POST "/users" for ::1 at 2022-12-14 16:45:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Kevin", "email"=>"asd@adssa.com"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (6.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Kevin"], ["email", "asd@adssa.com"], ["created_at", "2022-12-14 21:45:16.381595"], ["updated_at", "2022-12-14 21:45:16.381595"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+Redirected to http://localhost:3000/users/18
+Completed 302 Found in 8914ms (ActiveRecord: 23.7ms | Allocations: 91089)
+
+
+Started POST "/users/18" for ::1 at 2022-12-14 16:45:16 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/users/18"):
+  
+Started DELETE "/users/18" for ::1 at 2022-12-14 16:46:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+  [1m[36mUser Destroy (7.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+Completed 200 OK in 213ms (Views: 1.2ms | ActiveRecord: 21.2ms | Allocations: 10729)
+
+
+Started POST "/users" for ::1 at 2022-12-14 16:47:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Kevin", "email"=>"asd@adssa.com"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Kevin"], ["email", "asd@adssa.com"], ["created_at", "2022-12-14 21:47:23.707957"], ["updated_at", "2022-12-14 21:47:23.707957"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 200 OK in 218ms (Views: 1.3ms | ActiveRecord: 19.3ms | Allocations: 8925)
+
+
+Started DELETE "/users/19" for ::1 at 2022-12-14 16:47:32 -0500
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"name"=>"Kevin", "email"=>"asd@adssa.com"}, "id"=>"19"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+  [1m[36mUser Destroy (5.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:19:in `destroy'
+Completed 200 OK in 57ms (Views: 0.6ms | ActiveRecord: 13.2ms | Allocations: 5322)
+
+
