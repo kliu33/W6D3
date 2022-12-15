@@ -1,7 +1,12 @@
 class ArtworksController < ApplicationController
     def index
-        @artworks = Artwork.all
-        render json: @artworks
+        if params[:user_id]
+            @artworks = Artwork.artworks_for_user_id(params[:user_id])
+            
+        else
+            @artworks = Artwork.all
+        end
+        render json: @artworks    
     end
 
     def create

@@ -1925,3 +1925,493 @@ Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 985)
   [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
   [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "artwork_shares" ON "users"."id" = "artwork_shares"."viewer_id" WHERE "artwork_shares"."artwork_id" = $1[0m  [["artwork_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(642293562874849410)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(642293562874849410)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Delete All (1.7ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Delete All (1.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArtworkShare Delete All (0.7ms)[0m  [1m[31mDELETE FROM "artwork_shares"[0m
+  [1m[36mArtwork Delete All (0.8ms)[0m  [1m[31mDELETE FROM "artworks"[0m
+  [1m[36mUser Delete All (1.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex"], ["created_at", "2022-12-15 20:04:01.028760"], ["updated_at", "2022-12-15 20:04:01.028760"]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex1"], ["created_at", "2022-12-15 20:04:01.034836"], ["updated_at", "2022-12-15 20:04:01.034836"]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex2"], ["created_at", "2022-12-15 20:04:01.039558"], ["updated_at", "2022-12-15 20:04:01.039558"]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex3"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex3"], ["created_at", "2022-12-15 20:04:01.045419"], ["updated_at", "2022-12-15 20:04:01.045419"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex4"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex4"], ["created_at", "2022-12-15 20:04:01.051210"], ["updated_at", "2022-12-15 20:04:01.051210"]]
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex5"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex5"], ["created_at", "2022-12-15 20:04:01.056184"], ["updated_at", "2022-12-15 20:04:01.056184"]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex6"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex6"], ["created_at", "2022-12-15 20:04:01.060181"], ["updated_at", "2022-12-15 20:04:01.060181"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex7"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex7"], ["created_at", "2022-12-15 20:04:01.065851"], ["updated_at", "2022-12-15 20:04:01.065851"]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex8"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex8"], ["created_at", "2022-12-15 20:04:01.072022"], ["updated_at", "2022-12-15 20:04:01.072022"]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex9"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex9"], ["created_at", "2022-12-15 20:04:01.105611"], ["updated_at", "2022-12-15 20:04:01.105611"]]
+  [1m[36mArtwork Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."title" = $1 LIMIT $2[0m  [["title", "Mona Lisa"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."image_url" = $1 LIMIT $2[0m  [["image_url", "monalisa"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (0.8ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Mona Lisa"], ["image_url", "monalisa"], ["artist_id", 1], ["created_at", "2022-12-15 20:04:01.246747"], ["updated_at", "2022-12-15 20:04:01.246747"]]
+  [1m[36mArtwork Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."title" = $1 LIMIT $2[0m  [["title", "Starry Night"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."image_url" = $1 LIMIT $2[0m  [["image_url", "starrynight"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (0.7ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Starry Night"], ["image_url", "starrynight"], ["artist_id", 2], ["created_at", "2022-12-15 20:04:01.258173"], ["updated_at", "2022-12-15 20:04:01.258173"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.7ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 1], ["created_at", "2022-12-15 20:04:01.273429"], ["updated_at", "2022-12-15 20:04:01.273429"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.5ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 2], ["created_at", "2022-12-15 20:04:01.280941"], ["updated_at", "2022-12-15 20:04:01.280941"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.5ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 3], ["created_at", "2022-12-15 20:04:01.287596"], ["updated_at", "2022-12-15 20:04:01.287596"]]
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.6ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 4], ["created_at", "2022-12-15 20:04:01.294310"], ["updated_at", "2022-12-15 20:04:01.294310"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.8ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 5], ["created_at", "2022-12-15 20:04:01.300877"], ["updated_at", "2022-12-15 20:04:01.300877"]]
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.6ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 6], ["created_at", "2022-12-15 20:04:01.308773"], ["updated_at", "2022-12-15 20:04:01.308773"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.6ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 7], ["created_at", "2022-12-15 20:04:01.315168"], ["updated_at", "2022-12-15 20:04:01.315168"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (1.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 8], ["created_at", "2022-12-15 20:04:01.325789"], ["updated_at", "2022-12-15 20:04:01.325789"]]
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.5ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 9], ["created_at", "2022-12-15 20:04:01.335483"], ["updated_at", "2022-12-15 20:04:01.335483"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.6ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 10], ["created_at", "2022-12-15 20:04:01.343572"], ["updated_at", "2022-12-15 20:04:01.343572"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 15:05:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:4:in `index'
+Completed 200 OK in 268ms (Views: 27.7ms | ActiveRecord: 3.6ms | Allocations: 8570)
+
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 15:07:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.0ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:4:in `index'
+Completed 200 OK in 270ms (Views: 36.2ms | ActiveRecord: 6.4ms | Allocations: 8561)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 1]]
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 15:17:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+Completed 400 Bad Request in 278ms (ActiveRecord: 0.0ms | Allocations: 3639)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: artwork:
+  app/controllers/artworks_controller.rb:35:in `artwork_params'
+  app/controllers/artworks_controller.rb:3:in `index'
+
+Started GET "/artworks" for ::1 at 2022-12-15 15:18:28 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/artworks"):
+  
+Started GET "/user/1/artwork" for ::1 at 2022-12-15 15:20:28 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/artwork"):
+  
+Started GET "/user/1/artwork" for ::1 at 2022-12-15 15:21:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/artwork"):
+  
+Started GET "/user/1/artworks" for ::1 at 2022-12-15 15:21:31 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/artworks"):
+  
+Started GET "/user/1/artworks" for ::1 at 2022-12-15 15:22:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/1/artworks"):
+  
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 15:23:16 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+Completed 400 Bad Request in 216ms (ActiveRecord: 0.0ms | Allocations: 3605)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: artwork:
+  app/controllers/artworks_controller.rb:35:in `artwork_params'
+  app/controllers/artworks_controller.rb:3:in `index'
+
+Started GET "/artworks" for ::1 at 2022-12-15 15:39:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/artworks"):
+  
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 15:39:46 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:5:in `index'
+Completed 200 OK in 310ms (Views: 39.9ms | ActiveRecord: 4.9ms | Allocations: 8569)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-12-15 15:40:20 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.7ms | Allocations: 983)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:40:33 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 896)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:41:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", nil], ["viewer_id", nil]]
+  ↳ app/controllers/artworks_controller.rb:4:in `index'
+Completed 200 OK in 549ms (Views: 208.4ms | ActiveRecord: 3.7ms | Allocations: 13764)
+
+
+Started GET "/artwork_shares" for ::1 at 2022-12-15 15:42:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/artwork_shares"):
+  
+Started GET "/artwork_share" for ::1 at 2022-12-15 15:42:31 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/artwork_share"):
+  
+  [1m[36mArtworkShare Load (0.8ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  [1m[36mArtwork Load (1.6ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:47:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.3ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", nil], ["viewer_id", nil]]
+  ↳ app/controllers/artworks_controller.rb:4:in `index'
+No template found for ArtworksController#index, rendering head :no_content
+Completed 204 No Content in 604ms (ActiveRecord: 5.5ms | Allocations: 13441)
+
+
+  [1m[36mArtwork Load (1.8ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:50:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", nil], ["viewer_id", nil]]
+  ↳ app/controllers/artworks_controller.rb:5:in `index'
+No template found for ArtworksController#index, rendering head :no_content
+Completed 204 No Content in 401ms (ActiveRecord: 5.0ms | Allocations: 13445)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:52:26 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 807)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: artwork:
+  app/controllers/artworks_controller.rb:38:in `artwork_params'
+  app/controllers/artworks_controller.rb:3:in `index'
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:54:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" IS NULL OR "artwork_shares"."viewer_id" IS NULL)[0m
+  ↳ app/controllers/artworks_controller.rb:5:in `index'
+No template found for ArtworksController#index, rendering head :no_content
+Completed 204 No Content in 434ms (ActiveRecord: 5.3ms | Allocations: 9901)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 15:57:27 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 387848ms (ActiveRecord: 0.0ms | Allocations: 115659)
+
+
+
+SystemExit - exit:
+  (byebug):1:in `index'
+  app/controllers/artworks_controller.rb:5:in `index'
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 16:04:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 417ms (Views: 159.4ms | ActiveRecord: 7.4ms | Allocations: 14297)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 16:05:12 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT DISTINCT title FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1167)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 16:05:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT DISTINCT * FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 381ms (Views: 136.4ms | ActiveRecord: 6.0ms | Allocations: 14629)
+
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:05:51 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT DISTINCT * FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.2ms | Allocations: 1768)
+
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:07:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.6ms)[0m  [1m[34mSELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2) GROUP BY "artworks"."title"[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 499ms (ActiveRecord: 4.9ms | Allocations: 12045)
+
+
+
+ActiveRecord::StatementInvalid - PG::GroupingError: ERROR:  column "artworks.id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "art...
+               ^:
+  app/controllers/artworks_controller.rb:6:in `index'
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:08:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.8ms)[0m  [1m[34mSELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2) GROUP BY "artworks"[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 335ms (ActiveRecord: 5.4ms | Allocations: 12041)
+
+
+
+ActiveRecord::StatementInvalid - PG::GroupingError: ERROR:  column "artworks.id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "art...
+               ^:
+  app/controllers/artworks_controller.rb:6:in `index'
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:10:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.5ms)[0m  [1m[34mSELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2) GROUP BY "artworks"."id"[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 328ms (ActiveRecord: 4.8ms | Allocations: 12038)
+
+
+
+ActiveRecord::StatementInvalid - PG::GroupingError: ERROR:  column "artwork_shares.id" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: SELECT * FROM "artworks" INNER JOIN "artwork_shares" ON "art...
+               ^:
+  app/controllers/artworks_controller.rb:6:in `index'
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:12:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.5ms)[0m  [1m[34mSELECT DISTINCT artwork.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 500 Internal Server Error in 410ms (ActiveRecord: 4.9ms | Allocations: 12005)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "artwork"
+LINE 1: SELECT DISTINCT artwork.id, title, image_url FROM "artworks"...
+                        ^:
+  app/controllers/artworks_controller.rb:6:in `index'
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:13:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.3ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 420ms (Views: 139.9ms | ActiveRecord: 6.6ms | Allocations: 14326)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-12-15 16:13:34 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 2], ["viewer_id", 2]]
+  ↳ app/controllers/artworks_controller.rb:6:in `index'
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.9ms | Allocations: 1228)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-12-15 16:15:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (1.3ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 2], ["viewer_id", 2]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 421ms (Views: 175.6ms | ActiveRecord: 8.6ms | Allocations: 14373)
+
+
+Started GET "/artworks" for ::1 at 2022-12-15 16:15:23 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/artworks"):
+  
+Started GET "/artworks" for ::1 at 2022-12-15 16:16:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 313ms (Views: 43.2ms | ActiveRecord: 5.1ms | Allocations: 8594)
+
+
+Started GET "/users/1/artworks" for ::1 at 2022-12-15 16:16:26 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (2.0ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 1], ["viewer_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 168ms (Views: 105.1ms | ActiveRecord: 3.4ms | Allocations: 6888)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-12-15 16:16:29 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (1.0ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 2], ["viewer_id", 2]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.0ms | Allocations: 1172)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-12-15 16:16:31 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 3], ["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 994)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArtworkShare Delete All (0.7ms)[0m  [1m[31mDELETE FROM "artwork_shares"[0m
+  [1m[36mArtwork Delete All (0.8ms)[0m  [1m[31mDELETE FROM "artworks"[0m
+  [1m[36mUser Delete All (1.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex"], ["created_at", "2022-12-15 21:21:27.751755"], ["updated_at", "2022-12-15 21:21:27.751755"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex1"], ["created_at", "2022-12-15 21:21:27.764775"], ["updated_at", "2022-12-15 21:21:27.764775"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex2"], ["created_at", "2022-12-15 21:21:27.769397"], ["updated_at", "2022-12-15 21:21:27.769397"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex3"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex3"], ["created_at", "2022-12-15 21:21:27.773273"], ["updated_at", "2022-12-15 21:21:27.773273"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex4"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex4"], ["created_at", "2022-12-15 21:21:27.776701"], ["updated_at", "2022-12-15 21:21:27.776701"]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex5"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex5"], ["created_at", "2022-12-15 21:21:27.780169"], ["updated_at", "2022-12-15 21:21:27.780169"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex6"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex6"], ["created_at", "2022-12-15 21:21:27.783625"], ["updated_at", "2022-12-15 21:21:27.783625"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex7"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex7"], ["created_at", "2022-12-15 21:21:27.786755"], ["updated_at", "2022-12-15 21:21:27.786755"]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex8"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex8"], ["created_at", "2022-12-15 21:21:27.790052"], ["updated_at", "2022-12-15 21:21:27.790052"]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "rex9"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "rex9"], ["created_at", "2022-12-15 21:21:27.792835"], ["updated_at", "2022-12-15 21:21:27.792835"]]
+  [1m[36mArtwork Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."title" = $1 LIMIT $2[0m  [["title", "Mona Lisa"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."image_url" = $1 LIMIT $2[0m  [["image_url", "monalisa.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (0.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Mona Lisa"], ["image_url", "monalisa.com"], ["artist_id", 1], ["created_at", "2022-12-15 21:21:27.871702"], ["updated_at", "2022-12-15 21:21:27.871702"]]
+  [1m[36mArtwork Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."title" = $1 LIMIT $2[0m  [["title", "Starry Night"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."image_url" = $1 LIMIT $2[0m  [["image_url", "starrynight.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtwork Create (0.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Starry Night"], ["image_url", "starrynight.com"], ["artist_id", 2], ["created_at", "2022-12-15 21:21:27.879754"], ["updated_at", "2022-12-15 21:21:27.879754"]]
+  [1m[36mArtwork Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."title" = $1 LIMIT $2[0m  [["title", "Scream"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "artworks" WHERE "artworks"."image_url" = $1 LIMIT $2[0m  [["image_url", "scream.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArtwork Create (0.6ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "image_url", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Scream"], ["image_url", "scream.com"], ["artist_id", 3], ["created_at", "2022-12-15 21:21:27.887226"], ["updated_at", "2022-12-15 21:21:27.887226"]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.5ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 3], ["viewer_id", 7], ["created_at", "2022-12-15 21:21:27.897051"], ["updated_at", "2022-12-15 21:21:27.897051"]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.3ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 1], ["created_at", "2022-12-15 21:21:27.901475"], ["updated_at", "2022-12-15 21:21:27.901475"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 2], ["created_at", "2022-12-15 21:21:27.905668"], ["updated_at", "2022-12-15 21:21:27.905668"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.5ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 3], ["created_at", "2022-12-15 21:21:27.909884"], ["updated_at", "2022-12-15 21:21:27.909884"]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 4], ["created_at", "2022-12-15 21:21:27.914307"], ["updated_at", "2022-12-15 21:21:27.914307"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 1], ["viewer_id", 5], ["created_at", "2022-12-15 21:21:27.918497"], ["updated_at", "2022-12-15 21:21:27.918497"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 6], ["created_at", "2022-12-15 21:21:27.922427"], ["updated_at", "2022-12-15 21:21:27.922427"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.3ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 7], ["created_at", "2022-12-15 21:21:27.926700"], ["updated_at", "2022-12-15 21:21:27.926700"]]
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 8], ["created_at", "2022-12-15 21:21:27.930737"], ["updated_at", "2022-12-15 21:21:27.930737"]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.3ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 9], ["created_at", "2022-12-15 21:21:27.934672"], ["updated_at", "2022-12-15 21:21:27.934672"]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mArtworkShare Create (0.4ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 2], ["viewer_id", 10], ["created_at", "2022-12-15 21:21:27.938486"], ["updated_at", "2022-12-15 21:21:27.938486"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/6/artworks" for ::1 at 2022-12-15 16:22:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"6"}
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 6], ["viewer_id", 6]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 374ms (Views: 148.0ms | ActiveRecord: 5.9ms | Allocations: 14330)
+
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:22:47 -0500
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (1.3ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 1228)
+
+

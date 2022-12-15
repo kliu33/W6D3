@@ -32,7 +32,7 @@ class Artwork < ApplicationRecord
             .joins(:artwork_shares)
             .where(artist_id: user_id)
             .or(where(artwork_shares: {viewer_id: user_id}))
-            .pluck('DISTINCT title')
+            .select('DISTINCT artworks.id, title, image_url')
     end
     
 end

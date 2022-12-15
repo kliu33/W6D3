@@ -7,10 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 ActiveRecord::Base.transaction do
-    User.delete_all
-    Artwork.delete_all
     ArtworkShare.delete_all
-
+    Artwork.delete_all
+    User.delete_all
     puts "Resetting id sequences..."
     %w(users artworks artwork_shares).each do |table_name|
         ApplicationRecord.connection.reset_pk_sequence!(table_name)
@@ -58,14 +57,25 @@ ActiveRecord::Base.transaction do
 
     mona_lisa = Artwork.create!(
         title: "Mona Lisa",
-        image_url: "monalisa",
+        image_url: "monalisa.com",
         artist_id: rex.id
     )
 
     starry_night = Artwork.create!(
         title: "Starry Night",
-        image_url: "starrynight",
+        image_url: "starrynight.com",
         artist_id: rex1.id
+    )
+
+    scream = Artwork.create!(
+        title: "Scream",
+        image_url: "scream.com",
+        artist_id: rex2.id
+    )
+
+    scream_share = ArtworkShare.create!(
+        artwork_id: scream.id,
+        viewer_id: rex6.id
     )
 
     artwork_share = ArtworkShare.create!(
