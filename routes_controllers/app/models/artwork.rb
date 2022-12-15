@@ -17,6 +17,7 @@ class Artwork < ApplicationRecord
         primary_key: :id,
         foreign_key: :artist_id,
         class_name: :User
+        # inverse_of: :artworks
 
     has_many :artwork_shares,
         primary_key: :id,
@@ -29,10 +30,10 @@ class Artwork < ApplicationRecord
 
     def self.artworks_for_user_id(user_id)
         Artwork
-            .joins(:artwork_shares)
+            .joins(:shared_viewers)
             .where(artist_id: user_id)
             .or(where(artwork_shares: {viewer_id: user_id}))
-            .select('DISTINCT artworks.id, title, image_url')
+            .select('DISTINCT artworks.id, title, image_url, artist_id,')
     end
     
 end

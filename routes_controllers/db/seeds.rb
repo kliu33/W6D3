@@ -74,7 +74,7 @@ ActiveRecord::Base.transaction do
     )
 
     scream_share = ArtworkShare.create!(
-        artwork_id: scream.id,
+        artrework_id: scream.id,
         viewer_id: rex6.id
     )
 

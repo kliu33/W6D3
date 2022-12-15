@@ -2415,3 +2415,106 @@ Processing by ArtworksController#index as */*
 Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 1228)
 
 
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 10]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 10]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 10]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:52:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (1.5ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url, artist.id FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 486ms (ActiveRecord: 5.3ms | Allocations: 12004)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "artist"
+LINE 1: SELECT DISTINCT artworks.id, title, image_url, artist.id FRO...
+                                                       ^:
+  app/controllers/artworks_controller.rb:9:in `index'
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:54:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+Completed 500 Internal Server Error in 282ms (ActiveRecord: 3.2ms | Allocations: 8709)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Artwork' to association named 'users'; perhaps you misspelled it?:
+  app/controllers/artworks_controller.rb:9:in `index'
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:55:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url, artist_id, user.username FROM "artworks" INNER JOIN "users" ON "users"."id" = "artworks"."artist_id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 487ms (ActiveRecord: 5.0ms | Allocations: 14167)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at or near "."
+LINE 1: ...NCT artworks.id, title, image_url, artist_id, user.username ...
+                                                             ^:
+  app/controllers/artworks_controller.rb:9:in `index'
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:56:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (1.7ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url, artist_id, users.username FROM "artworks" INNER JOIN "users" ON "users"."id" = "artworks"."artist_id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 505ms (ActiveRecord: 4.9ms | Allocations: 14174)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "artwork_shares"
+LINE 1: ..."artist_id" WHERE ("artworks"."artist_id" = $1 OR "artwork_s...
+                                                             ^:
+  app/controllers/artworks_controller.rb:9:in `index'
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:57:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (1.8ms)[0m  [1m[34mSELECT DISTINCT artworks.id, title, image_url, artist_id, users.username FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" INNER JOIN "users" ON "users"."id" = "artwork_shares"."viewer_id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:9:in `index'
+Completed 200 OK in 480ms (Views: 218.5ms | ActiveRecord: 8.5ms | Allocations: 16882)
+
+
+Started GET "/users/7/artworks" for ::1 at 2022-12-15 16:59:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"7"}
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT users.username, DISTINCT artworks.id, title, image_url, artist_id, FROM "artworks" INNER JOIN "artwork_shares" ON "artwork_shares"."artwork_id" = "artworks"."id" INNER JOIN "users" ON "users"."id" = "artwork_shares"."viewer_id" WHERE ("artworks"."artist_id" = $1 OR "artwork_shares"."viewer_id" = $2)[0m  [["artist_id", 7], ["viewer_id", 7]]
+  ↳ app/controllers/artworks_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 566ms (ActiveRecord: 4.8ms | Allocations: 14400)
+
+
+
+ActiveRecord::StatementInvalid - PG::SyntaxError: ERROR:  syntax error at or near "DISTINCT"
+LINE 1: SELECT users.username, DISTINCT artworks.id, title, image_ur...
+                               ^:
+  app/controllers/artworks_controller.rb:9:in `index'
+
