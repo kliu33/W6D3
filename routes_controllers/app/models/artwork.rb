@@ -18,13 +18,21 @@ class Artwork < ApplicationRecord
         foreign_key: :artist_id,
         class_name: :User
 
-    has_many :artworks_shares,
+    has_many :artwork_shares,
         primary_key: :id,
         foreign_key: :artwork_id,
         class_name: :ArtworkShare
 
     has_many :shared_viewers,
-        through: :artworks_shares,
+        through: :artwork_shares,
         source: :viewer
+
+    def self.artworks_for_user_id(user_id)
+        Artwork
+            .joins(:artwork_shares)
+            .where(artist_id: user_id)
+            .or(where(artwork_shares: {viewer_id: user_id}))
+            .pluck('DISTINCT title')
+    end
     
 end
